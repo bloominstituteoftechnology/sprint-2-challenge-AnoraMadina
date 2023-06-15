@@ -129,12 +129,12 @@
       // 🧠 Edge cases:
       //    * If the x or y coordinates are under 1 or over 3, return the string "invalid coordinates"
       if (x < 1 || x > 3 || y < 1 || y > 3) {
-       return "invalid coordinates";
+       return "invalid coordinates"
   }
-  const square = grid[y - 1][x - 1];
+  const square = grid[y - 1][x - 1]
 
   if (square === "🟥") {
-    return "🟥 💀";
+    return "🟥 💀"
   } 
   else if (square === "🟦") {
     return "🟦 🥳";
@@ -184,12 +184,12 @@
       //    scrub("aces high", ["high", "aces", "hearts"]) // returns "xxxx xxxx"
       //    scrub("", ["high", "aces""]) // returns ""
       // 🌟 HINT: useful array methods to use are `push`, `indexOf`, `split`, `join`
-         const words = text.split(" ")
-         const scrubbedWords = []
+         const words = text.split(" ");
+         const scrubbedWords = [];
 
          for(let word of words){
           if(forbidden.includes(word)){
-            scrubbedWords.push('x'.repeat(word.length))
+            scrubbedWords.push('x'.repeat(word.length));
           }else{
             scrubbedWords.push(word)
           }
@@ -223,16 +223,16 @@
       const template = "(XXX) XXX-XXXX"
       let normalized = "";
 
-      for(let i = template.length - 1; i>=0; i++){
-        if(template[i] === "X"){
-          normalized = number.slice(-1) + normalized;
-          number = number.slice(0, -1);
-        }else{
-          normalized = template[i] + normalized;
-        }
-      }
-      return normalized;
-
+      let numberIndex = 0;
+  for (let i = 0; i < template.length; i++) {
+    if (template[i] === 'X') {
+      normalized += number[numberIndex];
+      numberIndex++;
+    } else {
+      normalized += template[i]
+    }
+  }
+ return normalized;
     }
 
     // 👉 CHALLENGE 6 (bonus, NOT graded)
@@ -243,24 +243,7 @@
       // 🌟 HINT: research using `Math.random` to obtain a number from 1 to 6
       // 🌟 HINT: use `while(true)` to throw the dice indefinitely, but avoid an infinite loop by making sure to break out eventually
       // 🌟 HINT: you need to keep track of the total number of throws, as well as how many sixes in a row
-      let throws = 0;
-      let consecutiveSixes = 0;
 
-      while(true){
-        throws++
-        const diceRoll = Math.floor(Math.random() * 6) +1; //meaning: any random num form 1 to 6
-
-        if(diceRoll === 6){
-          consecutiveSixes++;
-
-          if(consecutiveSixes ===3){
-            break; //meaning: break means stop the loop from running when 3 consecutive sixes are obtained
-          }
-        }else{
-          consecutiveSixes = 0; //Reset consecutive sixes counter if a non-six is rolled
-        }
-      }
-      return throws;
     }
 
     // 🧪 TESTS, do not make any changes below this line ===================
