@@ -184,12 +184,12 @@
       //    scrub("aces high", ["high", "aces", "hearts"]) // returns "xxxx xxxx"
       //    scrub("", ["high", "aces""]) // returns ""
       // 🌟 HINT: useful array methods to use are `push`, `indexOf`, `split`, `join`
-         const words = text.split(" ");
-         const scrubbedWords = [];
+         const words = text.split(" ")
+         const scrubbedWords = []
 
          for(let word of words){
           if(forbidden.includes(word)){
-            scrubbedWords.push('x'.repeat(word.length));
+            scrubbedWords.push('x'.repeat(word.length))
           }else{
             scrubbedWords.push(word)
           }
